@@ -39,7 +39,6 @@ export default function Programs() {
     fetchPrograms();
   }, []);
 
-  // Map program icons (you can customize this based on tags or program type)
   const getProgramIcon = (index) => {
     const icons = [
       <Palette className="w-6 h-6" key="palette" />,
@@ -53,7 +52,6 @@ export default function Programs() {
 
   // Map programs from Strapi to display format
   const programsToDisplay = programs.map((program, index) => {
-    // Data is at the top level, not in attributes
     const slug = program.slug || '';
     const title = program.title || 'Program';
     const summary = program.summary || 'Learn more about this program';
@@ -75,14 +73,45 @@ export default function Programs() {
     };
   });
 
+  const focusAreas = [
+    {
+      title: 'Empowerment',
+      description: 'Programs that build confidence, exposure, and practical support for women and youth to thrive in the maritime sector.'
+    },
+    {
+      title: 'Education',
+      description: 'Scholarships, bursaries, workshops, and training opportunities that strengthen knowledge and capacity.'
+    },
+    {
+      title: 'Maritime Awareness',
+      description: 'Campaigns and outreach activities that increase understanding of the maritime industry and its opportunities.'
+    },
+    {
+      title: 'Mentorship',
+      description: 'Structured guidance from professionals to support learning, growth, leadership, and informed career decisions.'
+    },
+    {
+      title: 'Skills Development',
+      description: 'Practical training and capacity-building activities that prepare beneficiaries for real-world opportunities.'
+    },
+    {
+      title: 'Women & Youth Inclusion',
+      description: 'Intentional efforts to ensure women and youth are actively engaged, supported, and represented in growth opportunities.'
+    },
+    {
+      title: 'Opportunity Creation',
+      description: 'Linkages to internships, networks, partnerships, and platforms that improve access to economic and professional opportunity.'
+    }
+  ];
+
   return (
     <section id="programs" className="programs-section-container">
       <div className="container">
         <div className="programs-section-header">
-          <h2 className="programs-section-title">Our Programs</h2>
+          <h2 className="programs-section-title">Our Programmatic Focus Areas</h2>
           <div className="programs-section-gradient-line"></div>
           <p className="programs-section-subtitle">
-            We offer comprehensive programs designed to nurture creativity, provide educational opportunities, and transform lives through the power of art.
+            We work through empowerment, education, maritime awareness, mentorship, skills development, and opportunity creation to support women and youth in building brighter futures.
           </p>
         </div>
 
@@ -90,15 +119,47 @@ export default function Programs() {
           <p className="text-center9 text-lg9 mt-6-9">Loading programs...</p>
         )}
 
+        <div className="programs-grid-3 programs-stagger-children" style={{ marginBottom: '2rem' }}>
+          {focusAreas.map((area, index) => (
+            <div key={area.title} className="programs-card-base programs-card-hover">
+              <div className="programs-image-container">
+                <div className="programs-image-overlay"></div>
+                <div className="programs-icon-badge">
+                  {getProgramIcon(index)}
+                </div>
+              </div>
+
+              <div className="programs-card-content">
+                <h3 className="programs-card-title">{area.title}</h3>
+                <p className="programs-card-description">{area.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="programs-cta-wrapper" style={{ marginTop: '1rem' }}>
+          <div className="programs-cta-card programs-fade-in-up" style={{ animationDelay: '0.6s' }}>
+            <div className="programs-cta-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <h3 className="programs-cta-title">Our Promise</h3>
+            <p className="programs-cta-description">
+              We are committed to building a pipeline of empowered women and youth who are better equipped to take advantage of education, employment, entrepreneurship, and leadership opportunities in the maritime industry.
+            </p>
+          </div>
+        </div>
+
         {!loading && programsToDisplay.length === 0 && (
           <div className="text-center9 mt-12-9">
             <div className="card-base9 max-w-2xl9" style={{margin: '0 auto'}}>
               <div className="card-icon9 mx-auto">
                 <Palette className="w-6 h-6" />
               </div>
-              <h3 className="text-xl9 mb-2-9">Programs Coming Soon</h3>
+              <h3 className="text-xl9 mb-2-9">Programs Under Development</h3>
               <p className="text-lg9">
-                We are developing exciting programs to serve our community. Check back soon for updates.
+                We are building practical, impact-driven programs to expand maritime awareness, mentorship, and opportunity for women and youth.
               </p>
             </div>
           </div>
@@ -158,12 +219,12 @@ export default function Programs() {
               <div className="programs-stats-card-label">Active Programs</div>
             </div>
             <div className="programs-stats-card">
-              <div className="programs-stats-number">100+</div>
-              <div className="programs-stats-card-label">Children Impacted</div>
+              <div className="programs-stats-number">Women</div>
+              <div className="programs-stats-card-label">& Youth Empowered</div>
             </div>
             <div className="programs-stats-card">
-              <div className="programs-stats-number">6</div>
-              <div className="programs-stats-card-label">Years of Service</div>
+              <div className="programs-stats-number">Maritime</div>
+              <div className="programs-stats-card-label">Opportunity Pathways</div>
             </div>
           </div>
         )}

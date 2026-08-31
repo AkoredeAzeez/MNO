@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "The Redraw Initiative",
-  description: "A non-profit organization dedicated to empowering communities through art and education.",
+  title: "Margaret Nkem Orakwusi Foundation",
+  description: "A nonprofit initiative empowering women and youth through education, mentorship, awareness, and access to opportunities in the maritime industry.",
 };
 
 export default function RootLayout({ children }) {

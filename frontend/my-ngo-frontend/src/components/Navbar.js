@@ -105,18 +105,18 @@ export default function Navbar() {
             >
               <div className="navbar-logo-image">
                 <Image 
-                  src="/img/redraw-logo.png"
-                  alt="Redraw Logo"
+                  src="/img/mnologo.jpg"
+                  alt="Foundation Logo"
                   width={100}
                   height={100}
                   priority
                 />
               </div>
-              <span className="navbar-brand-name navbar-brand-desktop">THE REDRAW INITIATIVE</span>
+              <span className="navbar-brand-name navbar-brand-desktop">MARGARET NKEM ORAKWUSI FOUNDATION</span>
               <div className="navbar-brand-mobile-logo">
                 <Image 
-                  src="/img/redraw-logo.png"
-                  alt="Redraw Logo"
+                  src="/img/mnologo.jpg"
+                  alt="Foundation Logo"
                   width={100}
                   height={70}
                   priority

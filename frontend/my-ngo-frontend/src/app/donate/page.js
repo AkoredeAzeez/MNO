@@ -80,6 +80,7 @@ export default function DonatePage() {
     e.preventDefault();
 
     const amount = donationAmount || customAmount;
+    const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY;
 
     if (!amount || amount <= 0) {
       alert("Please enter a valid donation amount");
@@ -91,17 +92,24 @@ export default function DonatePage() {
       return;
     }
 
-    console.log(
-      "PayStack Public Key:",
-      process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY
-    );
+    if (!publicKey) {
+      alert(
+        "Payment is not configured yet. Please add NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY in your environment variables."
+      );
+      return;
+    }
 
-    const handler = PaystackPop.setup({
-      key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY,
+    if (typeof window === "undefined" || !window.PaystackPop) {
+      alert("Payment gateway is still loading. Please refresh and try again.");
+      return;
+    }
+
+    const handler = window.PaystackPop.setup({
+      key: publicKey,
       email: donorInfo.email,
-      amount: amount * 100, // Amount in kobo
+      amount: amount * 100,
       currency: "NGN",
-      ref: "TRI_" + Math.floor(Math.random() * 1000000000 + 1),
+      ref: "MNOF_" + Math.floor(Math.random() * 1000000000 + 1),
       metadata: {
         full_name: donorInfo.name,
         phone_number: donorInfo.phone,
@@ -119,15 +127,14 @@ export default function DonatePage() {
         ],
       },
       callback: function (response) {
-        // TODO: Verify the transaction and update the campaign's raised amount.
         console.log("Payment successful!", response);
         alert("Payment successful! Reference: " + response.reference);
       },
       onClose: function () {
-        // User closed the popup
         console.log("Payment window closed.");
       },
     });
+
     handler.openIframe();
   };
 
@@ -142,11 +149,11 @@ export default function DonatePage() {
         {/* Hero Section */}
         <section className="donate-hero">
           <div className="donate-hero-content">
-            <h1 className="donate-hero-title">Make a Difference Today</h1>
+            <h1 className="donate-hero-title">Invest in Maritime Futures</h1>
             <div className="donate-hero-line"></div>
             <p className="donate-hero-subtitle">
-              Your generous donation helps us empower children through art
-              education and creative expression
+              Your support helps empower women and youth through education,
+              mentorship, awareness, and access to opportunity in the maritime sector.
             </p>
           </div>
         </section>
@@ -371,19 +378,19 @@ export default function DonatePage() {
                     <div className="donate-impact-item">
                       <div className="donate-impact-icon">₦5,000</div>
                       <p className="donate-impact-text">
-                        Provides art supplies for 2 children for a month
+                        Supports one awareness or mentorship outreach activity.
                       </p>
                     </div>
                     <div className="donate-impact-item">
                       <div className="donate-impact-icon">₦25,000</div>
                       <p className="donate-impact-text">
-                        Sponsors a child for a complete art workshop series
+                        Helps fund a skills or career development session for youth and women.
                       </p>
                     </div>
                     <div className="donate-impact-item">
                       <div className="donate-impact-icon">₦100,000</div>
                       <p className="donate-impact-text">
-                        Funds a scholarship for one year of art education
+                        Contributes to training, scholarship support, and maritime opportunity pathways.
                       </p>
                     </div>
                   </div>

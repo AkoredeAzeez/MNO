@@ -1,33 +1,29 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Hero() {
   return (
     <section className="hero-container-solid-bg">
-      {/* Background image that shows through cutouts */}
       <div className="background-image"></div>
 
-      {/* Content */}
       <div className="hero-content">
         <h1 className="hero-title gradient-text">
-          Empowering Children Through Art
+          Navigate. Learn. Lead.
         </h1>
         <p className="hero-subtitle">
-          Join us to give underprivileged children the tools to create their
-          future
+          Empowering women and youth through education, mentorship, awareness,
+          and access to opportunities in the maritime industry.
         </p>
         <div className="hero-buttons">
           <Link href="/donate" className="btn-futuristic">
-            Donate Now
+            Support the Mission
           </Link>
           <Link href="/volunteer" className="btn-ghost">
-            Volunteer
+            Become a Mentor
           </Link>
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <a href="#about" className="hero-scroll-indicator">
         <svg
           xmlns="http://www.w3.org/2000/svg"

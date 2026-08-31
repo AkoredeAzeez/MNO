@@ -97,7 +97,7 @@ export default function ProgramDetailPage() {
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Program Not Found</h2>
             <p className="text-gray-600 mb-6">The program you&apos;re looking for doesn&apos;t exist.</p>
             <Link href="/#programs">
-              <button className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+              <button className="program-back-button">
                 Back to Programs
               </button>
             </Link>

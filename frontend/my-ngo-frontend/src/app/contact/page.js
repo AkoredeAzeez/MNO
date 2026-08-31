@@ -42,7 +42,7 @@ export default function ContactPage() {
           <h2 className="contact-title">Contact Us</h2>
           <div className="section-gradient-line"></div>
           <p className="contact-subtitle">
-            Have a question or want to get in touch? Fill out the form below.
+            For partnerships, sponsorships, volunteering, scholarships, and general enquiries, please send us a message below.
           </p>
         </div>
 

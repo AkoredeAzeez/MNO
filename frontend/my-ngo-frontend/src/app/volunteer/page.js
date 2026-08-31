@@ -3,58 +3,58 @@ import { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { submitVolunteerApplication } from '../../api/volunteers';
-import { Palette, Heart, Mic, Camera, PenTool, ChevronDown } from 'lucide-react';
+import { Palette, Heart, Mic, BookOpen, Users, ChevronDown } from 'lucide-react';
 import './volunteer.css';
 
 const roles = [
   {
-    icon: <Palette />,
-    title: 'Art Workshop Facilitator',
-    description: 'Lead or assist in our creative workshops for children.',
+    icon: <BookOpen />,
+    title: 'Mentorship Support',
+    description: 'Guide young people and women through career awareness and informed decision-making.',
     tasks: [
-      'Prepare art materials',
-      'Guide children through projects',
-      'Foster a fun and supportive atmosphere',
+      'Support mentorship sessions and networking events',
+      'Share guidance on maritime pathways and professional growth',
+      'Encourage confidence and leadership development',
     ],
   },
   {
-    icon: <Heart />,
-    title: 'Community Outreach Ambassador',
-    description: 'Help us connect with local communities and partners.',
+    icon: <Users />,
+    title: 'Community Outreach Volunteer',
+    description: 'Help us connect with schools, communities, and partner institutions.',
     tasks: [
-      'Represent us at local events',
-      'Distribute informational materials',
-      'Build relationships with community leaders',
+      'Represent the Foundation at engagements and events',
+      'Support outreach and awareness activities',
+      'Build meaningful relationships with stakeholders',
     ],
   },
   {
     icon: <Mic />,
-    title: 'Event Support Staff',
-    description: 'Be the backbone of our exhibitions, fundraisers, and community events.',
+    title: 'Program and Event Support',
+    description: 'Assist in workshops, seminars, campaigns, and logistics that expand access and awareness.',
     tasks: [
-      'Assist with setup and cleanup',
-      'Welcome and guide guests',
-      'Manage activity stations',
+      'Help with setup, registration, and guest support',
+      'Support maritime awareness campaigns and facilitations',
+      'Create welcoming experiences for participants and partners',
     ],
   },
 ];
 
 const faqs = [
     {
+        question: 'What does the Foundation focus on?',
+        answer: 'We focus on women and youth empowerment through education, maritime awareness, mentorship, skills development, and access to opportunities in the maritime industry.'
+    },
+    {
+        question: 'Who can volunteer?',
+        answer: 'We welcome individuals who are passionate about youth development, women’s empowerment, mentorship, and sector inclusion. You do not need to be from the maritime industry to contribute meaningfully.'
+    },
+    {
         question: 'What is the time commitment?',
-        answer: 'The time commitment varies depending on the role. Workshop facilitators typically commit to a full workshop series (e.g., 2 hours a week for 6 weeks), while event support is on a per-event basis. We are flexible and can work with your schedule!'
+        answer: 'The time commitment varies depending on the role. Some activities are one-off events, while others may involve recurring support for workshops, mentorship, or outreach initiatives.'
     },
     {
-        question: 'Do I need to be an artist to volunteer?',
-        answer: 'Not at all! While we welcome artists, we have many roles that do not require artistic skills, such as event support, community outreach, and administrative help. A passion for our mission is the most important qualification.'
-    },
-    {
-        question: 'Are there any age requirements?',
-        answer: 'For most roles, volunteers must be 18 years or older. However, we have specific opportunities for youth volunteers (16-17) with parental consent. Please mention your age in the application form.'
-    },
-    {
-        question: 'What is the application process?',
-        answer: 'Simply fill out the form on this page! Our volunteer coordinator will review your application and get in touch with you to discuss potential opportunities and next steps. This may include a brief informal interview.'
+        question: 'How do I apply?',
+        answer: 'Simply complete the form on this page and tell us about your interests, experience, and availability. Our team will review your application and follow up with the next steps.'
     }
 ];
 
@@ -112,7 +112,7 @@ export default function VolunteerPage() {
         <section className="volunteer-hero">
           <h1 className="volunteer-hero-title">Become a Volunteer</h1>
           <p className="volunteer-hero-subtitle">
-            Your time and talent can ignite a creative spark in a childs life. Join us in our mission to empower the next generation through art.
+            Your time, skills, and network can help women and youth access mentorship, awareness, and opportunity in the maritime sector.
           </p>
         </section>
 

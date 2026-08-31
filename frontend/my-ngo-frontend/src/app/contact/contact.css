@@ -1,6 +1,6 @@
 .contact-section {
   padding: 4rem 1rem;
-  background-color: #f8f9fa;
+  background-color: #FFFFFF;
 }
 
 .contact-container {
@@ -22,14 +22,14 @@
 .section-gradient-line {
     width: 100px;
     height: 4px;
-    background: linear-gradient(to right, #4c51bf, #6b46c1);
+    background: linear-gradient(to right, #89A9EE, #FFFFFF);
     margin: 1rem auto;
     border-radius: 2px;
 }
 
 .contact-subtitle {
   font-size: 1.125rem;
-  color: #6c757d;
+  color: #FFFFFF;
 }
 
 .contact-form-container {
@@ -70,21 +70,21 @@
 
 .btn-submit {
   display: inline-block;
-  background-color: #4c51bf;
+  background: linear-gradient(135deg, var(--maritime-blue), #d62a2a);
   color: #ffffff;
   padding: 0.75rem 2rem;
-  border-radius: 4px;
+  border-radius: 12px;
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
   border: none;
   width: 100%;
 }
 
 .btn-submit:hover {
-  background-color: #434190;
+  background: linear-gradient(135deg, var(--deep-navy), var(--maritime-blue));
 }
 
 .btn-submit:disabled {
@@ -110,3 +110,4 @@
   color: #721c24;
   border: 1px solid #f5c6cb;
 }
+

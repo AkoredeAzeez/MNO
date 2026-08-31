@@ -18,24 +18,24 @@ export default function DonateCTA() {
     },
     { 
       title: "Quarterly/Annual Support", 
-      description: "Structured giving for larger impact",
+      description: "Structured giving for long-term development and expansion",
       icon: <Gift className="w-6 h-6" />,
       iconClass: "donate-icon-primary"
     },
     { 
       title: "In-Kind Donations", 
-      description: "Art supplies, materials, and equipment",
+      description: "Training resources, outreach materials, and learning support",
       icon: <Wrench className="w-6 h-6" />,
       iconClass: "donate-icon-gradient"
     },
   ];
 
   const usage = [
-    "Art workshops and training programs",
-    "Art materials and supplies",
-    "Art exhibitions and showcases",
-    "Operational expenses and program management",
-    "Scholarship funding through art auction proceeds"
+    "Maritime awareness and career orientation programs",
+    "Mentorship and leadership development sessions",
+    "Scholarship and training support for women and youth",
+    "Operational expenses and program coordination",
+    "Partnerships that expand access to opportunity and inclusion"
   ];
 
   return (
@@ -45,7 +45,7 @@ export default function DonateCTA() {
           <h2 className="donate-section-title">Support Our Mission</h2>
           <div className="donate-section-gradient-line"></div>
           <p className="donate-section-subtitle">
-            Your support enables us to continue empowering children through art education and creative expression.
+            Your support enables us to continue empowering women and youth through education, mentorship, and access to opportunity in the maritime industry.
           </p>
         </div>
 
@@ -109,7 +109,7 @@ export default function DonateCTA() {
           
           <div className="donate-card-base donate-impact-message">
             <p>
-              Every donation directly impacts a child&apos;s future through art education
+              Every donation directly strengthens a young person&apos;s future through access, mentorship, and opportunity.
             </p>
           </div>
         </div>

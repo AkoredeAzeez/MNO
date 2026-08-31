@@ -31,22 +31,22 @@ export default function Stories() {
 
   const impactStats = [
     { 
-      label: "Children Empowered", 
+      label: "Women & Youth Reached", 
       value: beneficiaries.length > 0 ? `${beneficiaries.length}+` : "100+", 
       icon: <Users className="w-6 h-6" />,
-      description: "Young lives transformed through art"
+      description: "People empowered through awareness and guidance"
     },
     { 
-      label: "Art Workshops", 
+      label: "Maritime Awareness Sessions", 
       value: "4", 
       icon: <Palette className="w-6 h-6" />,
-      description: "Creative learning sessions conducted"
+      description: "Industry-focused learning experiences delivered"
     },
     { 
-      label: "Scholarships Funded", 
+      label: "Mentorship Pathways", 
       value: "33", 
       icon: <BookOpen className="w-6 h-6" />,
-      description: "Educational dreams made possible"
+      description: "Opportunities created for growth and leadership"
     }
   ];
 
@@ -118,7 +118,7 @@ export default function Stories() {
           <h2 className="stories-section-title">Our Impact Stories</h2>
           <div className="stories-section-gradient-line"></div>
           <p className="stories-section-subtitle">
-            Every child we touch through art becomes a story of transformation, hope, and boundless creativity.
+            Every woman and young person we support becomes a story of confidence, opportunity, and transformation.
           </p>
         </div>
 
@@ -141,7 +141,7 @@ export default function Stories() {
           <div className="stories-section-subheader">
             <h3 className="stories-subheader-title">Voices of Transformation</h3>
             <p className="stories-subheader-text">
-              Real stories from the children and families whose lives have been touched by art
+              Real stories of opportunity, mentorship, and empowerment from women and youth building new futures
             </p>
           </div>
 
@@ -216,21 +216,21 @@ export default function Stories() {
             </div>
             
             <blockquote className="stories-quote-text">
-              &ldquo;Every brushstroke tells a story of hope, every drawing opens a door to possibility, and every exhibition builds bridges between dreams and reality.&rdquo;
+              &ldquo;The maritime sector is full of opportunity, and every young woman who gains access, mentorship, and knowledge becomes a future leader in that story.&rdquo;
             </blockquote>
             
             <div className="stories-quote-features">
               <div className="stories-quote-feature">
                 <div className="stories-quote-feature-dot"></div>
-                <span className="stories-quote-feature-text">Transforming lives through creative expression</span>
+                <span className="stories-quote-feature-text">Expanding awareness of maritime careers and pathways</span>
               </div>
               <div className="stories-quote-feature">
                 <div className="stories-quote-feature-dot"></div>
-                <span className="stories-quote-feature-text">Building confidence one artwork at a time</span>
+                <span className="stories-quote-feature-text">Building confidence through mentorship and practical learning</span>
               </div>
               <div className="stories-quote-feature">
                 <div className="stories-quote-feature-dot"></div>
-                <span className="stories-quote-feature-text">Creating pathways to brighter futures</span>
+                <span className="stories-quote-feature-text">Creating opportunities for leadership, enterprise, and growth</span>
               </div>
             </div>
           </div>
