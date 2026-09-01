@@ -6,15 +6,22 @@
 
 const { createCoreRouter } = require("@strapi/strapi").factories;
 
-module.exports = createCoreRouter("api::donation.donation", {
-  routes: [
-    {
-      method: "POST",
-      path: "/donations/verify",
-      handler: "donation.verify",
-      config: {
-        auth: false,
+const coreRouter = createCoreRouter("api::donation.donation");
+
+module.exports = {
+  type: "content-api",
+  get routes() {
+    const coreRoutes = coreRouter.routes || [];
+    return [
+      ...coreRoutes,
+      {
+        method: "POST",
+        path: "/donations/verify",
+        handler: "api::donation.donation.verify",
+        config: {
+          auth: false,
+        },
       },
-    },
-  ],
-});
+    ];
+  },
+};
