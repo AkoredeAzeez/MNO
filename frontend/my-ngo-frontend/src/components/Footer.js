@@ -35,7 +35,12 @@ export default function Footer() {
       }, 3000);
     } catch (error) {
       setStatus("error");
-      if (error.response?.data?.error?.message.includes("Duplicate entry")) {
+      const errorMessage = error.response?.data?.error?.message || '';
+      const isDuplicate =
+        errorMessage.includes("Duplicate entry") ||
+        errorMessage.includes("already taken") ||
+        errorMessage.toLowerCase().includes("unique");
+      if (isDuplicate) {
         setMessage("This email is already subscribed.");
       } else {
         setMessage("Something went wrong. Please try again.");

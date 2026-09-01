@@ -42,8 +42,9 @@ export default function Transparency() {
   const handleDownload = async (fileUrl, fileName) => {
     try {
       console.log('📥 Starting download:', fileName);
-      // Fetch the file
-      const response = await fetch(`${STRAPI_BASE_URL}${fileUrl}`);
+      // Fetch the file (fileUrl is absolute for Cloudinary, relative otherwise)
+      const url = fileUrl.startsWith('http') ? fileUrl : `${STRAPI_BASE_URL}${fileUrl}`;
+      const response = await fetch(url);
       const blob = await response.blob();
       
       // Create download link
@@ -120,14 +121,14 @@ export default function Transparency() {
 
   // Use only Strapi data, map to display format
   const reportsToDisplay = reports.map((report) => {
-    const hasFiles = report.attributes?.files?.data && report.attributes.files.data.length > 0;
+    const files = report.files || [];
     return {
-      title: `${report.attributes?.year || ''} ${report.attributes?.type || 'Report'}`,
-      status: hasFiles ? "Available" : "Coming Soon",
-      type: report.attributes?.type || "Report",
-      icon: getReportIcon(report.attributes?.type),
-      description: report.attributes?.summary || "View detailed report information",
-      files: hasFiles ? report.attributes.files.data : []
+      title: `${report.year || ''} ${report.type || 'Report'}`,
+      status: files.length > 0 ? "Available" : "Coming Soon",
+      type: report.type || "Report",
+      icon: getReportIcon(report.type),
+      description: report.summary || "View detailed report information",
+      files
     };
   });
 
@@ -149,13 +150,13 @@ export default function Transparency() {
 
   // Use only Strapi data for partnerships
   const partnershipsToDisplay = partners.map((partner) => {
-    const typeInfo = getPartnerTypeInfo(partner.attributes?.type);
+    const typeInfo = getPartnerTypeInfo(partner.type);
     return {
-      name: partner.attributes?.name || 'Partner',
+      name: partner.name || 'Partner',
       type: typeInfo.label,
-      role: partner.attributes?.url || 'Strategic partnership',
+      role: partner.url || 'Strategic partnership',
       verified: typeInfo.verified,
-      logo: partner.attributes?.logo?.data?.attributes?.url || null
+      logo: partner.logo?.url || null
     };
   });
 
@@ -235,8 +236,8 @@ export default function Transparency() {
                       {report.status === 'Available' ? (
                         <button 
                           onClick={() => handleDownload(
-                            report.files[0].attributes?.url,
-                            report.files[0].attributes?.name || `${report.title}.pdf`
+                            report.files[0].url,
+                            report.files[0].name || `${report.title}.pdf`
                           )}
                           className="btn-download9"
                         >

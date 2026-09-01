@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { ArrowLeft, ChevronLeft, ChevronRight, Tag, Users, Heart } from 'lucide-react';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
-import { getAllPrograms } from '../../../api/programs';
+import { getProgramBySlug } from '../../../api/programs';
 import { STRAPI_BASE_URL } from '../../../api/strapi';
 import '../../program-detail.css';
 
@@ -25,22 +25,18 @@ export default function ProgramDetailPage() {
     const fetchProgram = async () => {
       try {
         setLoading(true);
-        // Fetch programs with populated relations
-        const response = await getAllPrograms();
-        console.log('✅ Programs fetched:', response);
-        
-        // Find the program with matching slug
-        const foundProgram = response.data?.find(
-          p => p.slug === slug
-        );
-        
+        // Fetch the program matching this slug
+        const response = await getProgramBySlug(slug);
+        console.log('✅ Program fetched:', response);
+
+        const foundProgram = response.data?.[0];
+
         if (foundProgram) {
           setProgram(foundProgram);
           console.log('✅ Program found:', foundProgram);
           console.log('📝 Program data:', foundProgram);
         } else {
           console.log('❌ No program found with slug:', slug);
-          console.log('Available slugs:', response.data?.map(p => p.slug));
           setError('Program not found');
         }
       } catch (err) {
@@ -295,9 +291,9 @@ export default function ProgramDetailPage() {
                               dangerouslySetInnerHTML={{ __html: story.body }}
                             />
                           )}
-                          {story.beneficiary && (
+                          {story.beneficiaries && story.beneficiaries.length > 0 && (
                             <p className="program-story-author">
-                              - {story.beneficiary.name || 'Anonymous'}
+                              - {story.beneficiaries[0].name || 'Anonymous'}
                             </p>
                           )}
                         </div>
@@ -322,7 +318,7 @@ export default function ProgramDetailPage() {
                           key={tag.id || index}
                           className="program-tag"
                         >
-                          {tag.name}
+                          {tag.tag}
                         </span>
                       ))}
                     </div>

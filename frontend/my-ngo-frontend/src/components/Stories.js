@@ -63,9 +63,9 @@ export default function Stories() {
         const iconIndex = (beneficiaryIndex + storyIndex) % 3;
         testimonials.push({
           name: beneficiary.name || beneficiary.initials || 'Anonymous',
-          age: storyImpact.date ? new Date(storyImpact.date).getFullYear().toString() : '',
+          year: storyImpact.date ? new Date(storyImpact.date).getFullYear().toString() : '',
           story: storyImpact.excerpt || storyImpact.body?.replace(/<[^>]*>/g, '').substring(0, 200) || 'No story available',
-          impact: storyImpact.program?.name || storyImpact.title || 'Impact Story',
+          impact: storyImpact.program?.title || storyImpact.title || 'Impact Story',
           icon: iconIndex === 0 ? <Star className="w-5 h-5" /> : 
                 iconIndex === 1 ? <Heart className="w-5 h-5" /> : 
                 <Award className="w-5 h-5" />
@@ -155,7 +155,9 @@ export default function Stories() {
                     </div>
                     <div className="stories-testimonial-author-info">
                       <h4 className="stories-testimonial-name">{testimonial.name}</h4>
-                      <p className="stories-testimonial-role">{testimonial.age || testimonial.role}</p>
+                      <p className="stories-testimonial-role">
+                        {testimonial.year ? `Impact story · ${testimonial.year}` : testimonial.role}
+                      </p>
                     </div>
                   </div>
                   

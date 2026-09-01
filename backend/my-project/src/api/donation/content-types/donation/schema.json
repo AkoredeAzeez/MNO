@@ -1,0 +1,55 @@
+{
+    "kind": "collectionType",
+    "collectionName": "donations",
+    "info": {
+        "singularName": "donation",
+        "pluralName": "donations",
+        "displayName": "Donation"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "amount": {
+            "type": "biginteger",
+            "required": true,
+            "min": "100"
+        },
+        "currency": {
+            "type": "string",
+            "default": "NGN"
+        },
+        "email": {
+            "type": "string",
+            "required": true
+        },
+        "name": {
+            "type": "string"
+        },
+        "phone": {
+            "type": "string"
+        },
+        "reference": {
+            "type": "string",
+            "required": true,
+            "unique": true
+        },
+        "status": {
+            "type": "enumeration",
+            "enum": [
+                "Pending",
+                "Success",
+                "Failed"
+            ],
+            "default": "Pending",
+            "required": true
+        },
+        "campaign": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::donation-campaign.donation-campaign",
+            "inversedBy": "donations"
+        }
+    }
+}

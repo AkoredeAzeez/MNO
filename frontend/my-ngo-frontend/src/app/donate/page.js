@@ -4,6 +4,7 @@ import Image from "next/image";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { getAllDonationCampaigns } from "../../api/donation-campaigns";
+import { verifyDonation } from "../../api/donations";
 import { STRAPI_BASE_URL } from "../../api/strapi";
 import Script from "next/script";
 import "./donate.css";
@@ -126,9 +127,26 @@ export default function DonatePage() {
           },
         ],
       },
-      callback: function (response) {
+      callback: async function (response) {
         console.log("Payment successful!", response);
-        alert("Payment successful! Reference: " + response.reference);
+        try {
+          await verifyDonation({
+            reference: response.reference,
+            name: donorInfo.name,
+            phone: donorInfo.phone,
+            email: donorInfo.email,
+            campaignId: selectedCampaign?.documentId || selectedCampaign?.id,
+          });
+          alert("Payment successful! Reference: " + response.reference);
+          // Refresh campaigns so the raised amount updates
+          window.location.reload();
+        } catch (error) {
+          console.error("❌ Failed to record donation:", error);
+          alert(
+            "Payment was received, but we couldn't record it automatically. Please contact us with reference: " +
+              response.reference
+          );
+        }
       },
       onClose: function () {
         console.log("Payment window closed.");
