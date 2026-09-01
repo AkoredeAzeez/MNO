@@ -16,10 +16,18 @@ module.exports = createCoreController("api::donation.donation", ({ strapi }) => 
     const body = ctx.request.body?.data || ctx.request.body || {};
     const { reference, name, phone, email, campaignId } = body;
 
-    const donation = await strapi
-      .service("api::donation.donation")
-      .verifyDonation(reference, { name, phone, email, campaignId });
+    try {
+      const donation = await strapi
+        .service("api::donation.donation")
+        .verifyDonation(reference, { name, phone, email, campaignId });
 
-    return this.transformResponse(donation);
+      return this.transformResponse(donation);
+    } catch (error) {
+      const message = error.message || "Donation verification failed.";
+      if (error.status === 500) {
+        return ctx.internalServerError(message);
+      }
+      return ctx.badRequest(message);
+    }
   },
 }));

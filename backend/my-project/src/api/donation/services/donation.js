@@ -5,7 +5,6 @@
  */
 
 const { createCoreService } = require("@strapi/strapi").factories;
-const { ApplicationError, ValidationError } = require("@strapi/utils/errors");
 
 module.exports = createCoreService("api::donation.donation", ({ strapi }) => ({
   /**
@@ -15,17 +14,22 @@ module.exports = createCoreService("api::donation.donation", ({ strapi }) => ({
    * @param {string} reference - Paystack transaction reference
    * @param {object} [meta] - fallback donor info (name, phone, email, campaignId)
    * @returns {Promise<object>} the created donation
+   * @throws {Error} with `.status` (400 or 500) when verification fails
    */
   async verifyDonation(reference, meta = {}) {
     const secretKey = strapi.config.get("server.paystackSecretKey");
 
     if (!reference) {
-      throw new ValidationError("Missing transaction reference.");
+      const err = new Error("Missing transaction reference.");
+      err.status = 400;
+      throw err;
     }
     if (!secretKey) {
-      throw new ApplicationError(
+      const err = new Error(
         "Paystack secret key is not configured (PAYSTACK_SECRET_KEY)."
       );
+      err.status = 500;
+      throw err;
     }
 
     // 1. Call Paystack verify API
@@ -42,21 +46,27 @@ module.exports = createCoreService("api::donation.donation", ({ strapi }) => ({
     const body = await response.json().catch(() => ({}));
 
     if (!response.ok || !body.status) {
-      throw new ValidationError(
+      const err = new Error(
         `Paystack verification failed: ${body.message || "Unknown error"}`
       );
+      err.status = 400;
+      throw err;
     }
 
     const data = body.data || {};
     if (data.status !== "success") {
-      throw new ValidationError(
+      const err = new Error(
         `Transaction not successful (status: ${data.status}).`
       );
+      err.status = 400;
+      throw err;
     }
 
     const amount = Number(data.amount); // Paystack returns amount in kobo
     if (!amount || amount <= 0) {
-      throw new ValidationError("Transaction amount is invalid.");
+      const err = new Error("Transaction amount is invalid.");
+      err.status = 400;
+      throw err;
     }
 
     // 2. Check for an existing donation with this reference (idempotency)
