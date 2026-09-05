@@ -1,6 +1,6 @@
-const sslMode = env("DATABASE_SSL"); // unset => honor sslmode in the connection string (e.g. Railway's sslmode=require)
-
 module.exports = ({ env }) => {
+  // unset => honor sslmode in the connection string (e.g. Railway's sslmode=require)
+  const sslMode = env("DATABASE_SSL");
   return {
     connection: {
       client: "postgres",
