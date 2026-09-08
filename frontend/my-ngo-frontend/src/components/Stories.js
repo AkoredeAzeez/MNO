@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Heart, Star, Award, Palette, Users, BookOpen } from 'lucide-react';
+import { Heart, Star, Award, Users } from 'lucide-react';
 import { getAllBeneficiaries } from '../api/beneficiaries';
 
 export default function Stories() {
@@ -29,26 +29,14 @@ export default function Stories() {
     fetchBeneficiaries();
   }, []);
 
-  const impactStats = [
-    { 
-      label: "Women & Youth Reached", 
-      value: beneficiaries.length > 0 ? `${beneficiaries.length}+` : "100+", 
-      icon: <Users className="w-6 h-6" />,
-      description: "People empowered through awareness and guidance"
-    },
-    { 
-      label: "Maritime Awareness Sessions", 
-      value: "4", 
-      icon: <Palette className="w-6 h-6" />,
-      description: "Industry-focused learning experiences delivered"
-    },
-    { 
-      label: "Mentorship Pathways", 
-      value: "33", 
-      icon: <BookOpen className="w-6 h-6" />,
-      description: "Opportunities created for growth and leadership"
-    }
-  ];
+  const impactStat = beneficiaries.length > 0
+    ? {
+        label: "Women & Youth Reached",
+        value: `${beneficiaries.length}+`,
+        icon: <Users className="w-6 h-6" />,
+        description: "People empowered through awareness and guidance"
+      }
+    : null;
 
   // Build testimonials from beneficiaries and their story impacts
   const testimonials = [];
@@ -76,13 +64,6 @@ export default function Stories() {
 
   console.log('📋 Total testimonials built:', testimonials.length);
   console.log('📋 Testimonials:', testimonials);
-
-  const milestones = [
-    { year: "2018", event: "Founded with 10 children", highlight: true },
-    { year: "2019", event: "First art exhibition held", highlight: false },
-    { year: "2024", event: "Launched scholarship program", highlight: false },
-    { year: "2025", event: "Reached 150+ children impacted", highlight: true }
-  ];
 
   if (loading) {
     return (
@@ -122,19 +103,19 @@ export default function Stories() {
           </p>
         </div>
 
-        {/* Impact Statistics */}
-        <div className="stories-stats-grid stories-stagger-children">
-          {impactStats.map((stat, index) => (
-            <div key={index} className="stories-stat-card">
+        {/* Impact Statistic */}
+        {impactStat && (
+          <div className="stories-stats-grid" style={{ maxWidth: '320px', margin: '0 auto 3rem' }}>
+            <div className="stories-stat-card">
               <div className="stories-stat-icon">
-                {stat.icon}
+                {impactStat.icon}
               </div>
-              <div className="stories-stat-number">{stat.value}</div>
-              <div className="stories-stat-label">{stat.label}</div>
-              <p className="stories-stat-description">{stat.description}</p>
+              <div className="stories-stat-number">{impactStat.value}</div>
+              <div className="stories-stat-label">{impactStat.label}</div>
+              <p className="stories-stat-description">{impactStat.description}</p>
             </div>
-          ))}
-        </div>
+          </div>
+        )}
 
         {/* Success Stories */}
         <div className="stories-testimonials-wrapper">
@@ -177,35 +158,6 @@ export default function Stories() {
               <p className="stories-section-subtitle">No beneficiary stories available at the moment.</p>
             </div>
           )}
-        </div>
-
-        {/* Journey Timeline */}
-        <div className="stories-timeline-wrapper">
-          <div className="stories-section-subheader">
-            <h3 className="stories-subheader-title">Our Journey</h3>
-            <p className="stories-subheader-text">
-              Milestones that mark our growth and impact in the community
-            </p>
-          </div>
-
-          <div className="stories-timeline-grid">
-            {milestones.map((milestone, index) => (
-              <div key={index} className={`stories-milestone-card ${milestone.highlight ? 'highlight' : ''}`}>
-                <div className={`stories-milestone-year ${milestone.highlight ? 'highlight' : 'normal'}`}>
-                  {milestone.year}
-                </div>
-                <div className="stories-milestone-content">
-                  <p className="stories-milestone-event">{milestone.event}</p>
-                  {milestone.highlight && (
-                    <div className="stories-milestone-badge">
-                      <div className="stories-milestone-badge-dot"></div>
-                      <span className="stories-milestone-badge-text">Major Milestone</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Inspirational Quote Section */}

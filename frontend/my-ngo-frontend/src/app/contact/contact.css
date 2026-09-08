@@ -70,7 +70,7 @@
 
 .btn-submit {
   display: inline-block;
-  background: linear-gradient(135deg, var(--maritime-blue), #d62a2a);
+  background: var(--deep-navy);
   color: #ffffff;
   padding: 0.75rem 2rem;
   border-radius: 12px;
@@ -84,7 +84,7 @@
 }
 
 .btn-submit:hover {
-  background: linear-gradient(135deg, var(--deep-navy), var(--maritime-blue));
+  background: var(--deep-navy-strong);
 }
 
 .btn-submit:disabled {
