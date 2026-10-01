@@ -15,6 +15,8 @@ const PUBLIC_ACTIONS = [
   'api::donation.donation.findOne',
   'api::event.event.find',
   'api::event.event.findOne',
+  'api::gallery-album.gallery-album.find',
+  'api::gallery-album.gallery-album.findOne',
   'api::location.location.find',
   'api::location.location.findOne',
   'api::partner.partner.find',

@@ -68,3 +68,11 @@ pgdata/
 # ==============================
 yarn.lock
 package-lock.json
+
+# ==============================
+# Local media staging (source photo sets)
+# Photos live in Strapi/Cloudinary; these are local working copies.
+# ==============================
+/assets/
+*.zip
+*.crdownload

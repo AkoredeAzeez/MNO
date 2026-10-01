@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import './component.css';
+import './gallery.css';
 /*import './animations.css'; /* optional separate file */
 
 

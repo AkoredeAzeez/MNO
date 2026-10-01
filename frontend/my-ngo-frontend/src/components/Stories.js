@@ -244,7 +244,7 @@ export default function Stories() {
             <Link href="/contact" className="stories-cta-btn-primary">
               Share Your Story
             </Link>
-            <Link href="/#programs" className="stories-cta-btn-secondary">
+            <Link href="/gallery" className="stories-cta-btn-secondary">
               View Gallery
             </Link>
           </div>

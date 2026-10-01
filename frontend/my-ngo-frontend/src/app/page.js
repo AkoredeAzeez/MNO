@@ -6,6 +6,7 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import Programs from '../components/Programs';
 import Stories from '../components/Stories';
+import GalleryHighlights from '../components/GalleryHighlights';
 import DonateCTA from '../components/DonateCTA';
 import Transparency from '../components/Transparency';
 import VolunteerCTA from '../components/VolunteerCTA';
@@ -22,6 +23,7 @@ export default function HomePage() {
       <About />
       <Programs />
       <Stories />
+      <GalleryHighlights />
       <DonateCTA />
       <Transparency />
       <VolunteerCTA />

@@ -48,16 +48,16 @@ export default function Transparency() {
       const blob = await response.blob();
       
       // Create download link
-      const url = window.URL.createObjectURL(blob);
+      const blobUrl = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
-      link.href = url;
+      link.href = blobUrl;
       link.download = fileName || 'report';
       document.body.appendChild(link);
       link.click();
       
       // Cleanup
       document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
+      window.URL.revokeObjectURL(blobUrl);
       console.log('✅ Download completed:', fileName);
     } catch (err) {
       console.error('❌ Error downloading file:', err);

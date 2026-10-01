@@ -1,0 +1,521 @@
+/* ============================================================
+   GALLERY STYLES — Maritime Forum photo gallery
+   Uses the site design tokens from globals.css
+   ============================================================ */
+
+.gl-page {
+  min-height: 100vh;
+  background: var(--white);
+}
+
+/* ---------- Header ---------- */
+.gl-header {
+  background: linear-gradient(135deg, #0f0f2b 0%, #1c2a5e 60%, #89a9ee 140%);
+  padding: 9rem 1.5rem 4rem;
+  text-align: center;
+  color: var(--white);
+}
+
+.gl-header-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.gl-eyebrow {
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--maritime-blue);
+  margin-bottom: 1rem;
+}
+
+.gl-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.gl-subtitle {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 1.25rem;
+}
+
+.gl-meta {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--maritime-blue);
+}
+
+/* ---------- Layout ---------- */
+.gl-main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.gl-status {
+  text-align: center;
+  padding: 4rem 0;
+  color: #5b5b7a;
+  font-size: 1rem;
+}
+
+/* ---------- Album tabs ---------- */
+.gl-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.gl-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.125rem;
+  border: 2px solid rgba(137, 169, 238, 0.4);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--deep-navy);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.gl-tab:hover {
+  border-color: var(--maritime-blue);
+  background: var(--light-blue-bg);
+  transform: translateY(-2px);
+}
+
+.gl-tab.is-active {
+  background: var(--deep-navy);
+  border-color: var(--deep-navy);
+  color: var(--white);
+}
+
+.gl-tab-count {
+  font-size: 0.75rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(137, 169, 238, 0.25);
+  color: inherit;
+}
+
+.gl-tab.is-active .gl-tab-count {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.gl-album-description {
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  color: #5b5b7a;
+  line-height: 1.7;
+}
+
+/* ---------- Albums & grid ---------- */
+.gl-album + .gl-album {
+  margin-top: 3.5rem;
+}
+
+.gl-album-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--deep-navy);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(137, 169, 238, 0.3);
+}
+
+.gl-album-date {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--maritime-blue);
+}
+
+.gl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.875rem;
+}
+
+.gl-cell {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  border-radius: 14px;
+  background: var(--light-blue-bg);
+  cursor: pointer;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+  transition: outline-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.gl-cell:hover {
+  outline-color: var(--maritime-blue);
+  box-shadow: var(--cutout-hover-shadow);
+}
+
+.gl-image {
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gl-cell:hover .gl-image {
+  transform: scale(1.07);
+}
+
+.gl-cell-zoom {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  background: rgba(15, 15, 43, 0.42);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.gl-cell:hover .gl-cell-zoom {
+  opacity: 1;
+}
+
+/* ---------- Call to action ---------- */
+.gl-cta {
+  margin-top: 4.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 24px;
+  background: var(--light-blue-bg);
+  border: 1px solid rgba(137, 169, 238, 0.35);
+}
+
+.gl-cta-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--deep-navy);
+  margin-bottom: 1.25rem;
+}
+
+.gl-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+  justify-content: center;
+}
+
+.gl-cta-primary,
+.gl-cta-secondary {
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.gl-cta-primary {
+  background: var(--deep-navy);
+  color: var(--white);
+}
+
+.gl-cta-primary:hover {
+  background: #1c2a5e;
+  transform: translateY(-2px);
+}
+
+.gl-cta-secondary {
+  background: var(--white);
+  color: var(--deep-navy);
+  border: 2px solid var(--deep-navy);
+}
+
+.gl-cta-secondary:hover {
+  background: var(--maritime-blue);
+  border-color: var(--maritime-blue);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   HOMEPAGE HIGHLIGHTS SECTION
+   ============================================================ */
+.gh-section {
+  padding: 5rem 1.5rem;
+  background: var(--white);
+}
+
+.gh-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gh-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 2.75rem;
+}
+
+.gh-eyebrow {
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--maritime-blue);
+  margin-bottom: 0.75rem;
+}
+
+.gh-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--deep-navy);
+  margin-bottom: 1rem;
+}
+
+.gh-rule {
+  width: 70px;
+  height: 3px;
+  margin: 0 auto 1.25rem;
+  border-radius: 999px;
+  background: var(--primary-gradient);
+}
+
+.gh-subtitle {
+  color: #5b5b7a;
+  line-height: 1.7;
+}
+
+.gh-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 190px;
+  gap: 0.875rem;
+}
+
+.gh-cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  border-radius: 16px;
+  background: var(--light-blue-bg);
+  cursor: pointer;
+  transition: box-shadow var(--transition-normal);
+}
+
+.gh-cell:hover {
+  box-shadow: var(--cutout-hover-shadow);
+}
+
+.gh-cell-feature {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gh-image {
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gh-cell:hover .gh-image {
+  transform: scale(1.06);
+}
+
+/* "View full gallery" tile */
+.gh-cell-more {
+  background: linear-gradient(135deg, #0f0f2b, #1c2a5e);
+  color: var(--white);
+  text-decoration: none;
+  gap: 0.25rem;
+}
+
+.gh-cell-more:hover {
+  background: linear-gradient(135deg, #1c2a5e, #89a9ee);
+}
+
+.gh-more-count {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.gh-more-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.gh-more-arrow {
+  margin-top: 0.5rem;
+  display: flex;
+  transition: transform var(--transition-normal);
+}
+
+.gh-cell-more:hover .gh-more-arrow {
+  transform: translateX(6px);
+}
+
+@media (max-width: 900px) {
+  .gh-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 160px;
+  }
+  .gh-cell-feature {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .gl-header {
+    padding: 7rem 1.25rem 3rem;
+  }
+  .gl-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.625rem;
+  }
+}
+
+/* ============================================================
+   LIGHTBOX
+   ============================================================ */
+.glb-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 8, 20, 0.94);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: glb-fade 0.2s ease-out;
+}
+
+@keyframes glb-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.glb-figure {
+  max-width: min(92vw, 1200px);
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.glb-image {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
+}
+
+.glb-caption {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.875rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.glb-caption-album {
+  font-weight: 600;
+}
+
+.glb-caption-count {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.glb-nav,
+.glb-close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+  cursor: pointer;
+  transition: background var(--transition-normal), transform var(--transition-normal);
+}
+
+.glb-nav:hover,
+.glb-close:hover {
+  background: rgba(137, 169, 238, 0.45);
+  transform: scale(1.08);
+}
+
+.glb-nav {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+}
+
+.glb-nav:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+
+.glb-prev { left: 1.25rem; }
+.glb-next { right: 1.25rem; }
+
+.glb-close {
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 44px;
+  height: 44px;
+}
+
+@media (max-width: 640px) {
+  .glb-nav {
+    width: 42px;
+    height: 42px;
+  }
+  .glb-prev { left: 0.5rem; }
+  .glb-next { right: 0.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gl-image,
+  .gh-image,
+  .glb-overlay {
+    transition: none;
+    animation: none;
+  }
+}

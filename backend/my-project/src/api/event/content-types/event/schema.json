@@ -46,6 +46,12 @@
         },
         "capacity": {
             "type": "integer"
+        },
+        "galleryAlbums": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::gallery-album.gallery-album",
+            "mappedBy": "event"
         }
     }
 }
