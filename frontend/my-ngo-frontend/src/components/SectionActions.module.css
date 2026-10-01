@@ -1,0 +1,29 @@
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 20px;
+  border: 1px solid #cad8ef;
+  border-radius: 10px;
+  color: var(--emerald-pine, #163c34);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.secondary:hover {
+  background: #f0f4fc;
+}
+
+.secondary:focus-visible {
+  outline: 3px solid #89a9ee;
+  outline-offset: 4px;
+}

@@ -194,11 +194,11 @@ export default function Events() {
         )}
         
         {/* Call to Action */}
-        <div className="text-center8 fade-in-up8" style={{animationDelay: '0.3s'}}>
+        <div className="text-center8">
           <div className="card-base8 cta-card8">
             <h3 className="card-title8">Stay Connected</h3>
             <p className="card-description8 mb-24-8">
-              Do not miss out on our upcoming events! Follow us on social media for the latest updates and exclusive previews.
+              Do not miss out on our upcoming events! Follow us on social media for the latest updates.
             </p>
             <div className="feature-list8">
               <div className="feature-item8">
@@ -207,11 +207,11 @@ export default function Events() {
               </div>
               <div className="feature-item8">
                 <div className="feature-dot8"></div>
-                <span className="feature-text8">Behind-the-scenes content</span>
+                <span className="feature-text8">Volunteer and mentorship opportunities</span>
               </div>
               <div className="feature-item8">
                 <div className="feature-dot8"></div>
-                <span className="feature-text8">Exclusive artist interviews</span>
+                <span className="feature-text8">Updates from our programs and partners</span>
               </div>
             </div>
           </div>

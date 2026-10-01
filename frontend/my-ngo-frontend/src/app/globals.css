@@ -22,7 +22,9 @@ html {
   /* Mix 1 Official Palette - Blue & White Only */
   --white: #FFFFFF;
   --deep-navy: #0F0F2B;
+  --deep-navy-strong: #07071a;
   --maritime-blue: #89A9EE;
+  --accent-blue: #3E6FCB;
   --light-blue-bg: #F4F7FD;
   
   /* Alias for consistency */
@@ -134,50 +136,26 @@ body {
 
 /* ===== BUTTONS ===== */
 .btn-futuristic {
-  background: linear-gradient(135deg, #89A9EE, #0F0F2B);
+  background: var(--deep-navy);
   border: none;
-  outline: var(--outline-navy);
-  outline-offset: -2px;
-  border-radius: 50px;
+  border-radius: 8px;
   padding: 16px 32px;
   font-weight: 600;
   font-size: 1.1rem;
   color: var(--white);
   cursor: pointer;
   transition: all var(--transition-normal);
-  box-shadow: 0 8px 25px rgba(137, 169, 238, 0.32);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-futuristic::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(248, 249, 250, 0.3), transparent);
-  transition: all var(--transition-slow);
-}
-
-.btn-futuristic:hover::before {
-  left: 100%;
 }
 
 .btn-futuristic:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 35px rgba(137, 169, 238, 0.4);
-  background: linear-gradient(135deg, #89A9EE, #FFFFFF);
+  transform: translateY(-2px);
+  background: var(--deep-navy-strong);
 }
 
 .btn-ghost {
-  background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(137, 169, 238, 0.45);
-  outline: var(--outline-black);
-  outline-offset: -2px;
-  border-radius: 50px;
+  background: var(--white);
+  border: 2px solid var(--deep-navy);
+  border-radius: 8px;
   padding: 16px 32px;
   font-weight: 600;
   font-size: 1.1rem;
@@ -187,9 +165,9 @@ body {
 }
 
 .btn-ghost:hover {
-  background: rgba(137, 169, 238, 0.2);
-  transform: translateY(-3px) scale(1.05);
-  border-color: var(--maritime-blue);
+  background: var(--deep-navy);
+  color: var(--white);
+  transform: translateY(-2px);
 }
 
 /* ===== SECTION BACKGROUNDS ===== */
@@ -248,7 +226,7 @@ body {
 }
 
 .text-limeglow {
-  color: var(--limeglow);
+  color: var(--emerald-pine);
 }
 
 
@@ -348,28 +326,19 @@ body {
 
 /* ===== UTILITY ANIMATION CLASSES ===== */
 .animate-slide-up {
-  animation: slideUp 0.8s ease-out forwards;
+  opacity: 1;
 }
 
 .animate-slide-left {
-  animation: slideInLeft 0.8s ease-out forwards;
+  opacity: 1;
 }
 
 .animate-slide-right {
-  animation: slideInRight 0.8s ease-out forwards;
+  opacity: 1;
 }
 
-.animate-glow {
-  animation: glow 3s ease-in-out infinite;
-}
 
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
 
-.animate-float-gentle {
-  animation: floatGently 8s ease-in-out infinite;
-}
 
 /* ===== BRAND COMPONENT STYLES ===== */
 .cherish-card {

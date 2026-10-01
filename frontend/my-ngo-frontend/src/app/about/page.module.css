@@ -1,0 +1,26 @@
+.main {
+  padding-top: 120px;
+  background: #fff;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 40px 0;
+  color: var(--emerald-pine, #163c34);
+  font-size: 0.9rem;
+}
+
+.breadcrumb a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 639px) {
+  .breadcrumb {
+    padding-inline: 20px;
+  }
+}

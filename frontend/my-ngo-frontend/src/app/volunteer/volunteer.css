@@ -2,12 +2,12 @@
 
 .volunteer-page {
   background: #FFFFFF;
-  color: #89A9EE;
+  color: var(--emerald-pine);
 }
 
 /* Hero Section */
 .volunteer-hero {
-  background: linear-gradient(135deg, #89A9EE, #89A9EE);
+  background: var(--deep-navy);
   padding: 6rem 2rem 4rem;
   text-align: center;
   color: #ffffff;
@@ -40,7 +40,7 @@
 .volunteer-section-title {
   font-size: 2.25rem;
   font-weight: 700;
-  color: #89A9EE;
+  color: var(--emerald-pine);
   text-align: center;
   margin-bottom: 2.5rem;
 }
@@ -103,8 +103,8 @@
 }
 
 .volunteer-role-task::before {
-  content: 'âœ“';
-  color: #89A9EE;
+  content: '\2713';
+  color: var(--emerald-pine);
   font-weight: 700;
 }
 
@@ -154,7 +154,7 @@
 .volunteer-form-submit {
   width: 100%;
   padding: 1.25rem 2rem;
-  background: linear-gradient(135deg, var(--maritime-blue), #d62a2a);
+  background: var(--deep-navy);
   color: #ffffff;
   border: none;
   border-radius: 12px;

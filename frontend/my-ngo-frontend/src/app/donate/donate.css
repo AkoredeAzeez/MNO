@@ -7,7 +7,7 @@
 
 /* Hero Section */
 .donate-hero {
-  background: linear-gradient(135deg, #89A9EE 0%, #89A9EE 100%);
+  background: var(--deep-navy);
   padding: 6rem 2rem 4rem;
   text-align: center;
   position: relative;
@@ -82,7 +82,7 @@
 .donate-section-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #89A9EE;
+  color: var(--emerald-pine);
   margin-bottom: 1.5rem;
 }
 
@@ -106,8 +106,6 @@
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid transparent;
-  outline: 2px solid #000000;
-  outline-offset: -2px;
 }
 
 .donate-campaign-card:hover {
@@ -134,7 +132,7 @@
 .donate-campaign-description {
   font-size: 1.125rem;
   font-weight: 600;
-  color: #89A9EE;
+  color: var(--emerald-pine);
   margin-bottom: 1.5rem;
   line-height: 1.5;
 }
@@ -161,7 +159,7 @@
 .donate-stat-value {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #89A9EE;
+  color: var(--emerald-pine);
 }
 
 .donate-progress-container {
@@ -179,7 +177,7 @@
 
 .donate-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #89A9EE 0%, #89A9EE 100%);
+  background: #89A9EE;
   transition: width 0.5s ease;
 }
 
@@ -230,7 +228,7 @@
 .donate-selected-name {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #89A9EE;
+  color: var(--emerald-pine);
 }
 
 /* Amount Selection */
@@ -242,7 +240,7 @@
   display: block;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #89A9EE;
+  color: var(--emerald-pine);
   margin-bottom: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -259,7 +257,7 @@
   border: 2px solid #e0e0e0;
   border-radius: 12px;
   background: #ffffff;
-  color: #89A9EE;
+  color: var(--emerald-pine);
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
@@ -273,7 +271,7 @@
 
 .donate-amount-btn.active {
   border-color: var(--maritime-blue);
-  background: linear-gradient(135deg, var(--maritime-blue), #d62a2a);
+  background: var(--deep-navy);
   color: #ffffff;
 }
 
@@ -308,7 +306,7 @@
 .donate-submit-btn {
   width: 100%;
   padding: 1.25rem 2rem;
-  background: linear-gradient(135deg, var(--maritime-blue) 0%, #d62a2a 100%);
+  background: var(--deep-navy);
   color: #ffffff;
   border: none;
   border-radius: 12px;
@@ -344,7 +342,7 @@
 
 /* Impact Card */
 .donate-impact-card {
-  background: linear-gradient(135deg, #89A9EE 0%, #89A9EE 100%);
+  background: var(--deep-navy);
   border-radius: 16px;
   padding: 2rem;
   color: #ffffff;
@@ -370,8 +368,8 @@
 }
 
 .donate-impact-icon {
-  background: #89A9EE;
-  color: #ffffff;
+  background: #ffffff;
+  color: var(--deep-navy);
   padding: 0.5rem 1rem;
   border-radius: 8px;
   font-weight: 700;
